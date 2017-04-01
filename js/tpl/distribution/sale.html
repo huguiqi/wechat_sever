@@ -1,0 +1,54 @@
+<div ng-controller="distributionSaleCtrl" class="distribution-products clearfix">
+	<div class="products-tab">
+		<div class="tab-button-wraper">
+			<span ng-class="{active:pageConfig.listType==1}" ng-click="updateList(1)">会员</span>
+			<span ng-class="{active:pageConfig.listType==2}" ng-click="updateList(2)">活动</span>
+			<span ng-class="{active:pageConfig.listType==3}" ng-click="updateList(3)">课程</span>
+		</div>
+	</div>
+	<div class="products-list sale-list">
+		<div class="inner" ng-repeat="item in list track by $index" ng-if="pageConfig.listType==1">
+			<div class="list" ng-click="goNewPages()">
+				<div class="times">
+					<p class="created">{{item.created | mdate:'YYYY-MM-DD HH:mm'}}</p>
+					<div class="creator clearfix">
+						<span class="nick">{{item.creator.nick}}</span>
+						<img ng-src="{{item.creator.avatar}}" alt="" class="avatar">
+					</div>
+				</div>
+				<div class="detail clearfix">
+					<img src="../../../image/product.png">
+					<span class="right-top-num c-main-red" ng-if="item.pay==199"><span>收入￥</span><span>66.66</span></span>
+					<span class="right-top-num c-main-red" ng-if="item.pay==1888"><span>收入￥</span><span>128</span></span>
+					<span class="right-top-num c-main-red" ng-if="item.pay==2888"><span>收入￥</span><span>128</span></span>
+					<span class="right-bottom-num">成交金额 {{item.pay | number:2}}</span>
+				</div>
+				<p class="sub-name" ng-if="item.pay==199">会员合伙人</p>
+				<p class="sub-name" ng-if="item.pay==1888">战略合伙人[人气包]</p>
+				<p class="sub-name" ng-if="item.pay==2888">战略合伙人[逼格包]</p>
+			</div>
+		</div>
+		<div class="inner" ng-repeat="item in list track by $index" ng-if="pageConfig.listType!=1">
+			<div class="list" ng-click="goNewPages(item.campaignId)">
+				<div class="times">
+					<p class="created">{{item.created | mdate:'YYYY-MM-DD HH:mm'}}</p>
+					<div class="creator clearfix">
+						<span class="nick">{{item.creator.nick}}</span>
+						<img ng-src="{{item.creator.avatar}}" alt="" class="avatar">
+					</div>
+				</div>
+				<div class="detail clearfix">
+					<img ng-src="{{item.cover}}?imageView2/1/w/300/h/160/q/100">
+					<span class="right-top-num c-main-red"><span>收入￥</span><span>{{item.earn | number:2}}</span></span>
+					<span class="right-bottom-num">成交金额 {{item.pay | number:2}}</span>
+				</div>
+				<p class="sub-name">{{item.name}}</p>
+			</div>
+		</div>		
+	</div>
+	<div class="button-group sale-button-group">
+		<div class="button">
+			<button ui-sref="distribution.center">返回会员中心</button>
+		</div>
+	</div>
+</div>

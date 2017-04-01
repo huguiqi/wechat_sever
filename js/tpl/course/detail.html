@@ -1,0 +1,108 @@
+<div class="course-detail clearfix" ng-controller="courseDetailCtrl">
+    <div class="detail-content">
+        <div class="tops clearfix" ng-class="{'class-none':classData.length<1}">
+            <div class="banner" ng-show="courseData.photo.length>0">
+                <div id="J_sliderWraper" style="width:100%; height:100%;position: relative"></div>
+            </div>
+            <div class="banner" ng-show="courseData.photo.length==0">
+                <div style="width:100%; height:100%;">
+                    <img ng-src="{{courseData.cover}}?imageView2/1/w/750/h/400/q/100" alt="">
+                </div>
+            </div>
+            <div class="title clearfix">
+                <p class="title-content">
+                    <span class="course-name">{{courseData.name}}</span>
+                    <span class="course-length" ng-if="classData.length>0">
+                        <span>共{{classData[courseView.class].period}}</span>
+                        <span ng-if="classData[courseView.class].auditionType==1">课时</span>
+                        <span ng-if="classData[courseView.class].auditionType==2">课次</span>
+                    </span>
+                </p>
+                <p ng-if="classData.length>0">
+                    <span class="c-main-red" ng-class="{'class-price':classData[courseView.class].disPrice!=classData[courseView.class].price}">
+                    <i ng-if="classData[courseView.class].disPrice!=classData[courseView.class].price">原价</i>
+                    <i>￥</i>{{classData[courseView.class].price  | number:2}}</span>
+                    <!-- <span class="interval" ng-if="classData[courseView.class].price!=''">/</span> -->
+                    <span ng-if="classData[courseView.class].disPrice!=classData[courseView.class].price">翼起学独家优惠价
+                        <span class="c-main-red">￥{{classData[courseView.class].disPrice}}</span>
+                    </span>
+                </p>
+                <p class="class-type" ng-if="classData[courseView.class].type==2&&classData[courseView.class].auditionperiod>0">
+                    <span class="sort">体验课</span>
+                    <span ng-if="classData[courseView.class].audition<1">可免费试听</span>
+                    <span ng-if="classData[courseView.class].audition>0">预付</span>
+                    <span class="c-main-red" ng-if="classData[courseView.class].audition>0">￥{{classData[courseView.class].audition | number:2}}</span>
+                    <span ng-if="classData[courseView.class].audition>0"> 可试听</span>
+                    <span class="c-main-red"> {{classData[courseView.class].auditionperiod}} </span>
+                    <span ng-if="classData[courseView.class].auditionType==1"> 课时</span>
+                    <span ng-if="classData[courseView.class].auditionType==2"> 课次</span>
+                </p>
+                <div class="collect" ng-if="courseView.status==0" ng-click="collect(1)">
+                    <i class="iconfont icon icon-heart"></i>
+                </div>
+                <div class="collect active" ng-if="courseView.status==1" ng-click="collect(0)">
+                    <i class="iconfont icon icon-heart"></i>
+                </div>
+            </div>
+            <div class="class" ng-if="classData.length>0">
+                <p class="caption">班级类别 <span class="c-gray-font">(请选择)</span></p>
+                <a class="list clearfix" ng-repeat="item in classData" ng-click="classShow($index,item)" ng-class="{active:courseView.class==$index,full:item.num==0}">
+                    <span class="name">{{item.name}}</span>
+                    <span class="over" ng-if="item.num>0"><span>剩余学位:</span><span class="num">{{item.num}}</span></span>
+                    <span class="over" ng-if="item.num==0">已满员</span>
+                </a>
+            </div>
+        </div>
+        <div class="message">
+            <div class="link" ng-class="{nborder:courseData.video.length<1}">
+                <a href="" class="link-btn">课程介绍</a>
+            </div>
+            <div class="content">
+                <div class="title" ng-if="courseData.video.length>0">
+                    <p class="buttons">课程视频</p>
+                    <p class="look">建议在WIFI环境下播放</p>
+                    <div class="video">
+                        <video id="J_video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" style="width:100%;height:100%;" poster="{{courseData.video[0].banner}}" data-setup='{"example_option":true}'>
+                         <source src="{{courseData.video[0].url}}" type='video/mp4' />
+                        </video>
+                    </div>
+                </div>
+                <div class="article html" ng-bind-html="courseData.detail | html"></div>
+                <div class="age" ng-if="courseData.scopeId!=''">
+                    <p><span class="box"></span><span class="titles">适用学员</span></p>
+                    <p class="text">{{courseData.scopeId}}</p>
+                </div>
+                <div class="address">
+                    <div class="left">
+                        <p><span class="box"></span><span class="titles">上课地址</span></p>
+                        <p class="text">{{schoolData.district[0].cname}}{{schoolData.district[1].cname}}{{schoolData.address}}</p>
+                    </div>
+                    <button class="icon iconfont right" ng-click="openLocation()">&#xe602;</button>
+                </div>
+            </div>
+        </div>
+        <div class="school clearfix">
+            <img ng-src="{{schoolData.logo}}" alt="logo" title="logo" class="logo">
+            <p class="name">{{schoolData.name}}</p>
+            <p class="discountNotice" ng-if="schoolData.discountNotice!=''">{{schoolData.discountNotice}}</p>
+            <button class="btns" ui-sref="course.schoolDetail({id:schoolData._id})">查看机构介绍</button>
+        </div>
+    </div>
+    <div class="detail-footer" ng-if="classData.length>0">
+        <a href="tel:{{schoolData.phone[0]}}">
+            <img src="../../image/school_phone_bg.png" alt="" class="phone-bg">
+            <span>电话垂询</span>
+        </a>
+        <a ng-click="singup()">立即报名</a>
+    </div>
+    <div class="detail-footer" ng-if="classData.length<1">
+        <a href="tel:{{schoolData.phone[0]}}" style="width:100%;">
+            <img src="../../image/school_phone_bg.png" alt="" class="phone-bg">
+            <span>电话垂询</span>
+        </a>
+    </div>
+    <div class="c-collect-tips" ng-if="tipView.tip">
+        <p class="tipText">{{tipView.text}}</p>
+    </div>
+    <div class="distribution-money-button" ng-distribution-dialog qr-code-url="{{shareLink}}" ng-if="userInfo.isMember"></div>
+</div>

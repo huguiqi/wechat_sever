@@ -1,0 +1,22 @@
+<!-- <div class="course-person-center-wraper" ng-controller="courseCenterNav">
+    <div class="nav" ng-class="{'hiddenNav':!showNav}">
+        <a ng-href="{{link.course}}">首页</a>
+        <a ng-href="{{link.campaign}}">找活动</a>
+        <a ui-sref="course.myCourse">我的</a>
+    </div>
+    <span class="avatar" ng-click="showNav=!showNav"><img ng-src="{{userInfo.avatar}}"></span>
+</div>
+ -->
+ <div class="course" ng-controller="courseHomeCtrl">
+    <!-- <div class="course-header clearfix">
+        <img src="../../image/back_btn.png" alt="" class="back-btn">
+        <img src="../../image/logo.png" alt="" class="logo">
+        <img src="../../image/mall_btn.png" alt="" class="mall-btn" ui-sref="course.myCourse({id:personInfo.userId})">
+    </div> -->
+    <div class="course-list">
+        <a class="course-item" ng-repeat="item in courseList" ui-sref="course.list({firstCategoryId:firstCategoryId,secondCategoryId:item._id})">
+            <img ng-src="{{item.icon || 'http://cdn.4001583721.com/default_avatar1.png'}}?imageView2/1/w/750/h/400/q/80" class="banner">
+            <p class="right-num"><span class="squire"></span><span>{{item.CourseCount}}</span><span>门课程</span></p>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+require('./http');
+//活动
+require('./campaign');
+//课程
+require('./course');
+//机构
+require('./school');
+//会员
+require('./distribution')

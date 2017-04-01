@@ -1,0 +1,58 @@
+<div class="page-course-list" ng-controller="courseListCtrl">
+	<div class="banner" id="J_banner" style="background: #ccc; text-align: center; line-height: 4rem;">
+		<img src="../../image/course-list-add/course_list_bg_01.jpg" ng-if="courseCategory[activeIndex].cname=='益智启蒙类'" ui-sref="course.schoolDetail({id:'564e85f10ba3fa063081b3e5'})">
+		<img src="../../image/course-list-add/course_list_bg_02.jpg" ng-if="courseCategory[activeIndex].cname=='才艺类'" ui-sref="course.schoolDetail({id:'56f20b10d1fbdafb11decc13'})">
+		<!-- <img src="../../image/course-list-add/course_list_bg_03.jpg" ng-if="courseCategory[activeIndex].cname=='课外辅导类'" ui-sref="course.schoolDetail({id:'54f6ae57c3b3c126ac349826'})"> -->
+		<a href="http://mp.weixin.qq.com/s?__biz=MzAxNTE4MzAyMA==&mid=502767000&idx=1&sn=0db60f1f627753e612dd631a59b14a15&scene=1&srcid=052468rBlGpMVN3lCH8VvK7D&from=groupmessage&isappinstalled=0#wechat_redirect"><img src="../../image/course-list-add/course_list_bg_03.jpg" ng-if="courseCategory[activeIndex].cname=='课外辅导类'"></a>
+		<img src="../../image/course-list-add/course_list_bg_04.jpg" ng-if="courseCategory[activeIndex].cname=='运动类'" ui-sref="course.schoolDetail({id:'56f399b8eb576d681208c280'})">
+		<img src="../../image/course-list-add/course_list_bg_05.jpg" ng-if="courseCategory[activeIndex].cname=='情商类'" ui-sref="course.schoolDetail({id:'56ea66ab4b8a0dfa0fad5af6'})">
+		<img src="../../image/course-list-add/course_list_bg_06.jpg" ng-if="courseCategory[activeIndex].cname=='早/晚托班'" ui-sref="course.detail({id:'562e2db4e9e49207e3f44e42'})">
+	</div>
+	<div class="course-category-nav" id="J_courseCategoryNavWraper" ng-class="{'nav-fixed':view.navFixed}">
+	    <div class="swiper-container" id="J_swiperHeader">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide" 
+	            	 ng-repeat="item in courseCategory" 
+	            	 ng-click="selectCourse($index)"
+	            	 ng-class="{'c-slide-active':activeIndex==$index}"
+	            	 ><span>{{item.cname}}</span></div>
+	        </div>
+		</div>
+	</div>
+	<div class="course-list-wraper" ng-class="{'course-list-wraper-pt':view.navFixed}" id="J_courseListWraper">
+		<ul class="c-item clearfix">
+			<li ng-repeat="item in courseList" ui-sref="course.detail({id:item._id})">
+				<div class="course-wraper">
+					<div class="left-content">
+						<div class="title">{{item.name}}</div>
+						<div class="icon-item" ng-if="item.classType>0">
+							<span class="icon-section try"><i class="icon iconfont icon-zan"></i>可试听</span>
+						</div>
+						<div class="icon-item bottom-icon">
+							<span class="icon-section" ng-if="item.dist<3000"><i class="icon iconfont icon-walk"></i>{{item.dist | distance}}</span>
+							<span class="icon-section" ng-if="item.dist>=3000"><i class="icon iconfont icon-car"></i>{{item.dist | distance}}</span>
+							<span class="icon-section c-main-red"><i class="icon iconfont icon-heart"></i>{{item.count}}</span>
+						</div>
+					</div>
+					<div class="right-image">
+						<img ng-src="{{item.cover || 'http://cdn.4001583721.com/default_avatar1.png'}}?imageView2/1/w/600/h/500/q/100">
+					</div>
+				</div>
+				<div class="school-wraper">
+					<img ng-src="{{item.slogo}}">
+					<span>{{item.sname}}</span>
+				</div>
+			</li>
+		</ul>
+		<div class="c-item-loading" ng-show="pageConfig.showLoading&&!pageConfig.hasNoData">{{pageConfig.loadingText}}</div>
+		<div class="c-loading-none clearfix" ng-show="pageConfig.hasNoData">
+			<div class="left clearfix">
+				<img src="../../image/course_loading_none.png" alt="" class="loading-none">
+				<p class="text"><span class="triangle"></span><span>没有其他啦？</span></p>
+			</div>
+			<div class="right">
+				<p class="text"><span class="triangle"></span><span>翼起学只为您推荐最优质的课程，更多课程，敬请期待！</span></p>
+			</div>
+		</div>
+	</div>
+</div>

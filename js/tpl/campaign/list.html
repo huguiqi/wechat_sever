@@ -1,0 +1,21 @@
+<div class="campaign-list" ng-controller="campaignListCtrl" id="J_campaignList">
+    <ul class="list-nav">
+        <li ng-click="getCampaignList(1)"><a href="" ng-class="{'active':listShow==1}">推荐</a></li>
+        <li ng-click="getCampaignList(2)"><a href="" ng-class="{'active':listShow==2}">热门</a></li>
+        <li ng-click="getCampaignList(3)"><a href="" ng-class="{'active':listShow==3}">附近</a></li>
+    </ul>
+    <div class="item">
+        <a href="javascript:;" ng-repeat="item in campaign" ng-click="openCampaignDetail(item._id)" class="content">
+            <p class="title" ng-if="timeShow">
+                <span class="status" ng-if="item.startTime>nowTime">未开始</span>
+                <span class="status" ng-if="item.startTime<=nowTime&&item.endTime>nowTime">已开始</span>
+                <span class="status" ng-if="item.endTime<=nowTime">未开始</span>
+                <span class="left"></span>
+                <span class="time"></span>
+            </p>
+            <img ng-src="{{item.cover}}?imageView2/1/w/750/h/400/q/80" src="" alt="banner">
+            <p class="adress"><i class="icon iconfont icon-locationfill"></i><span>{{item.address}}</span></p>
+        </a>
+        <p class="item-tips">{{pageConfig.loadingText}}</p>
+    </div>
+</div>

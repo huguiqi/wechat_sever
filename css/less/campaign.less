@@ -1,0 +1,790 @@
+.campaign-list{
+    height: 100%;
+    width: 100%;
+    padding-top: 1.2rem;
+    .list-nav{
+        height: 1.2rem;
+        line-height: 1.2rem;
+        width: 100%;
+        background: #fff;
+        font-size: 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999999;
+        padding:0 0.6rem;
+        li{
+            font-size: 30px;
+            width: 100%/3;
+            text-align: center;
+            display: inline-block;
+            a{
+                color: rgba(130,130,130,.5);
+            }
+            .active{
+                color: rgba(254,107,83,1);
+            }
+        }
+    }
+    .item{
+        .item-tips{
+            line-height: 1rem;
+            text-align: center;
+            color: @main-font-color;
+        }
+        .content{
+            height: 5.2rem;
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            position: relative;
+            padding: 0.6rem 0;
+            margin-bottom: 0.15rem;
+            .image{
+                height: 100%;
+                width: 100%;
+                border:none;
+            }
+            .title{
+                height: 0.6rem;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 5;
+                background-color:rgba(255,255,255,1);
+                color: #fff;
+                .time{
+                    height: 0.6rem;
+                    line-height: 0.6rem;
+                    width: 70%;
+                    text-align: center;
+                    z-index: 20;
+                    background-color:rgba(80,227,194,1);
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    z-index: 10;
+                }
+                .status{
+                    width: 30%;
+                    line-height: 0.6rem;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: 10;
+                    text-align: center;
+                    padding-right: 0.3rem;
+                    color: @main-font-color;
+                }
+                .left{
+                    height: 0;
+                    width: 0;
+                    border:0.3rem solid transparent;
+                    border-top-color:rgba(80,227,194,1);
+                    border-right-color:rgba(80,227,194,1);
+                    position: absolute;
+                    right: 70%;
+                    z-index: 100;
+                }
+            }
+            .adress{
+                width: 100%;
+                height: 0.6rem;
+                line-height: 0.6rem;
+                position: absolute;
+                bottom:0;
+                left: 0;
+                text-align: center;
+                background-color:rgba(255,255,255,1);
+                color: @main-font-color;
+                i{
+                    margin-right: 0.1rem;
+                }
+                span{
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+/*.campaign-list-person-center{
+    position: fixed;
+    right: 0.5rem;
+    bottom: 0.8rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color:rgba(80,227,194,.6);
+    border:2px solid #fff;
+    -webkit-animation:9.5s linear 0s normal none infinite rotate;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+}*/
+
+@-webkit-keyframes rotate{
+    from{
+        -webkit-transform:rotate(0deg);
+
+    }
+    to{
+        -webkit-transform:rotate(360deg)
+    }
+}
+
+@-webkit-keyframes rotate360{
+    from{
+        -webkit-transform:rotate(0deg);
+
+    }
+    to{
+        -webkit-transform:rotate(360deg)
+    }
+}
+
+.campaign-detail{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .back{
+        height: 0.8rem;
+        width: 1.2rem;
+        text-align: center;
+        display: block;
+        position: absolute;
+        left: 0.2rem;
+        top: 0.2rem;
+        color: #fff;
+        z-index: 10;
+        .goback{
+            vertical-align: middle;
+        }
+    }
+    .contents{
+        height: 100%;
+        width: 100%;
+        padding-bottom: 1rem;
+        .tops{
+            width: 100%;
+            margin-bottom: 0.2rem;
+            .banner{
+                height: 4rem;
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            .campaign-title{
+                padding:0.3rem;
+                font-size: 16px;
+                line-height:1.5;
+                background-color:#fff;
+                text-align: center;
+            }
+            .campaign-price{
+                margin-top: -0.2rem;
+                line-height: 0.8rem;
+                color: @main-red;
+                font-size: 0.5rem;
+                text-align: center;
+                background-color:#fff;
+                span{
+                    font-size: 0.3rem;
+                    padding: 0 0.08rem;
+                }
+            }
+        }
+        .messages{
+            width: 100%;
+            display: block;
+            background: #fff;
+            ul:first-child{
+                margin-bottom:0.2rem;
+            }
+            ul{
+                width: 100%;
+                li{
+                    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+                    .inner{
+                        margin-left: 0.8rem;
+                        padding:0.4rem 0.6rem 0.4rem 0;
+                        border-bottom:1px solid #eee;
+                        position:relative;
+                        span{
+                            vertical-align: middle;
+                            display:inline-block;
+                            line-height:1.2;
+                        }
+                        .title{
+                            padding-right:0.1rem;
+                        }
+                        .square{
+                            height:100%;
+                            width:0.2rem;
+                            display:inline-block;
+                            background-color:#fe6b53;
+                            position:absolute;
+                            left:-0.8rem;
+                            top:0;
+                        }
+                        .subInfo{
+                            margin-top: 0.2rem;
+                            color: #aaa;
+                        }
+                        .left-icon{
+                            position: absolute;
+                            width: 0.5rem;
+                            left: -0.6rem;
+                            font-size: 16px;
+                        }
+                        .school-logo{
+                            width: 0.5rem;
+                            height: 0.5rem;
+                            border-radius: 50%;
+                        }
+                        .arrow-right{
+                            width: 0.5rem;
+                            height: 0.5rem;
+                            line-height: 0.5rem;
+                            font-size: 16px;
+                            text-align: center;
+                            position: absolute;
+                            right: 0.1rem; 
+                            top: 50%;
+                            margin-top: -0.25rem;
+                            color: #aaa;
+                        }
+                        
+                    }
+                    &:last-child{
+                        .inner{
+                            border:none;
+                        }
+                    }
+                }
+                .line{
+                    height:0.1rem;
+                    width:100%;
+                    background-color:#d7d7d7;
+                    padding:0;
+                    margin:0;
+                }
+            }
+            .title{
+                padding-top: 1rem;
+                text-align: center;
+                span{
+                    line-height: 0.6rem;
+                    background-color: @main-red;
+                    color: #fff;
+                    font-size: 14px;
+                    border-radius: 2px;
+                    padding: 0rem 0.2rem;
+                    font-weight: bold;
+                    display: inline-block;
+                }
+            }
+            .content{
+                padding:0.4rem;
+                margin-left: 0;
+                font-family: SimHei;
+                line-height: 1.5;
+                font-size: 16px;
+                text-align: justify;
+                color: #808080;
+            }
+            .yqx-tip-wraper{
+                padding:1rem 0.4rem;
+                .yqx-tip{
+                    width: 100%;
+                    border:1px solid @main-bottoms-lines;
+                    padding:0 0.2rem;
+                    .tip-title{
+                        height: 0.6rem;
+                        line-height: 0.6rem;
+                        text-align: center;
+                        margin-top: -0.3rem;
+                        margin-bottom: 0.3rem;
+                        span{
+                            background-color: #606060;
+                            color: #fff;
+                            font-size: 14px;
+                            border-radius: 2px;
+                            padding: 0rem 0.2rem;
+                            font-weight: bold;
+                            display: inline-block;
+                        }
+                    }
+                    .item{
+                        margin-bottom: 0.3rem;
+                        line-height: 0.4rem;
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+    }
+    .signup-footer{
+        width: 100%;
+        position: fixed;
+        padding: 0.2rem 0.3rem;
+        bottom: 0px;
+        border-top: 1px solid #f0f0f0;
+        background-color: @main-red;
+        font-size: 14px;
+        .price{
+            float: left;
+            color: #fff;
+            line-height: 0.8rem;
+        }
+        .btn{
+            float: right;
+            width: 1.6rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            min-width: 1rem;
+            background-color: #4FE3C1;
+            border: none;
+            border-radius: 2px;
+            font-size: 14px;
+            color: #fff;
+        }
+        .over-tip{
+            height: 0.8rem;
+            line-height: 0.8rem;
+            text-align: center;
+            color: #fff;
+        }
+    }
+}
+.campaign-signup{
+    .advertising{
+        width: 100%;
+        height: 2rem;
+        background-color: #ccc;
+    }
+    .signup-wraper{
+        padding: 0.4rem 0.2rem;
+        .tip{
+            height: 1rem;
+            line-height: 1rem;
+        }
+        .input-wraper{
+            position: relative;
+            input{
+                width: 100%;
+                height: 1rem;
+                line-height: 1rem;
+                padding: 0 0.1rem;
+                border: 1px solid #ccc;
+                border-radius: 2px;
+                -webkit-appearance: none;
+            }
+            .verification{
+                position: absolute;
+                top:0;
+                right: 0;
+                width: 35%;
+                height: 1rem;
+                line-height: 1rem;
+                background-color: @main-red;
+                color: #fff;
+                border-radius: 2px;
+                text-align: center;
+                font-size: 12px;
+            }
+            .sended{
+                background-color: #ccc;
+            }
+        }
+        .submit-btn{
+            width: 100%;
+            height: 1rem;
+            line-height: 1rem;
+            border: none;
+            border-radius: 2px;
+            color: #fff;
+            background-color: @main-red;
+            text-align: center;
+            margin-top: 0.4rem;
+        }
+    }
+}
+.campaign-footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 0.2rem;
+    background-color: #393A3F;
+    color: #999;
+    font-size: 12px;
+    -webkit-transition: all 0.2s ease;
+    p{
+        line-height: 0.6rem;
+    }
+}
+.campaign-order{
+    .order-title{
+        height: 2.6rem;
+        padding:0.3rem;
+        font-size: 16px;
+        margin-bottom: 0.2rem;
+        background-color: #fff;
+        .cover{
+            width: 3.25rem;
+            height: 2rem;
+            position: absolute;
+            overflow: hidden;
+        }
+        .title{
+            width: 100%;
+            padding-left: 3.5rem;
+            line-height: 20px;
+            font-size: 14px;
+        }
+    }
+    .order-ticket{
+        font-size: 14px;
+        line-height: 0.5rem;
+        padding:0.2rem 0.3rem 0.5rem 0.3rem;
+        background-color: #fff;
+        margin-bottom: 0.2rem;
+        .tips{
+            line-height: 0.5rem;
+            margin-bottom: 0.2rem;
+            i{
+                font-size: 20px;
+                margin-right: 0.1rem;
+                color: #21b81a;
+                vertical-align: middle;
+            }
+            span{
+                vertical-align: middle;
+                display: inline-block;
+            }
+        }
+        ul{
+            li{
+                margin-bottom: 0.2rem;
+                padding:0.2rem;
+                background: @main-gray-bg;
+                border-radius: 2px;
+                -webkit-transition: all 0.2s ease;
+                .ticket-message{
+                    height: 0.6rem;
+                    line-height: 0.6rem;
+                    overflow: hidden;
+                    .name{
+                        max-width: 70%;
+                        font-weight: bold;
+                        float: left;
+                    }
+                    .last{
+                        max-width: 30%;
+                        float: right;
+                        text-align: right;
+                        .number{
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .tip-text{
+                    height: 0.6rem;
+                    font-size: 12px;
+                    overflow: hidden;
+                    .desc{
+                        max-width: 70%;
+                        float: left;
+                        line-height: 0.35rem;
+                        i{
+                            margin-right: 2px;
+                        }
+                    }
+                    .price{
+                        float: right;
+                        line-height: 0.6rem;
+                        i{
+                            font-style: normal;
+                            font-size: 12px;
+                        }
+                    }
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+            .active{
+                background: @main-red;
+                color: #fff;
+                border: none;
+            }
+        }
+    }
+    .campaign-sku-wraper{
+        padding-left: 0.3rem;
+        margin-bottom: 0.2rem;
+        background-color: #fff;
+        .item{
+            width: 100%;
+            height: 1rem;
+            padding: 0.2rem 0.3rem 0.2rem 0;
+            line-height: 0.6rem;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+            overflow: hidden;
+            .label{
+                color: #333;
+            }
+            .text{
+                color: #999;
+                float: right;
+            }
+            &:last-child{
+                border-bottom: none;
+            }
+            .name-input{
+                width: 100%;
+                border: none;
+            }
+        }
+    }
+    .order-footer{
+        height: 1.6rem;
+        width: 100%;
+        padding:0.3rem;
+        border:1px solid @main-bottoms-lines;
+        background: #fff;
+        position: fixed;
+        bottom:0;
+        .left{
+            width: 100%;
+            padding-right: 2.5rem;
+            line-height: 0.5rem;
+            .price{
+                color: @main-red;
+                span{
+                    font-size: 0.5rem;
+                }
+            }
+            .number{
+                span{
+                    display: inline-block;
+                }
+                .sub,.add{
+                    height: 0.4rem;
+                    width: 0.4rem;
+                    line-height: 0.4rem;
+                    text-align: center;
+                    border:1px solid @main-bottoms-lines;
+                }
+                .num{
+                    padding:0 0.2rem;
+                    color: @main-red;
+                }
+            }
+        }
+        .right{
+            height: 1rem;
+            width: 2rem;
+            position: absolute;
+            right: 0.3rem;
+            top: 0.3rem;
+            border-radius: 0.1rem;
+            background: @main-red;
+            border:none;
+            color: #fff;
+        }
+    }
+}
+.campaign-pay{
+    .title-wraper{
+        // height: 3rem;
+        padding: 0.8rem 0;
+        margin-bottom: 0.2rem;
+        background-color: #fff;
+        text-align: center;
+        .title{
+            padding: 0.2rem;
+            font-size: 15px;
+            line-height: 0.4rem;
+        }
+        .price{
+            height: 1rem;
+            line-height: 1rem;
+            font-size: 20px;
+            color: @main-red;
+        }
+        .num{
+            height: 0.8rem;
+            line-height: 0.8rem;
+            font-size: 16px;
+            color:#555;
+        }
+    }
+    .campaign-sku-wraper{
+        padding-left: 0.2rem;
+        margin-bottom: 0.2rem;
+        background-color: #fff;
+        .item{
+            width: 100%;
+            height: 1rem;
+            padding-right: 0.2rem;
+            line-height: 1rem;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+            overflow: hidden;
+            .label{
+                color: #333;
+            }
+            .text{
+                color: #999;
+                float: right;
+            }
+            &:last-child{
+                border-bottom: none;
+            }
+            .name-input{
+                width: 100%;
+                height: 1rem;
+                padding: 0.2rem 0;
+                line-height: 0.6rem;
+                border: none;
+            }
+        }
+    }
+    .pay-btn{
+        width: 90%;
+        height: 1rem;
+        margin: 0.6rem 5%;
+        line-height: 1rem;
+        border-radius: 0.06rem;
+        border: none;
+        background-color: @wechat-green;
+        color: #fff;
+        text-align: center;
+    }
+    .pay-success-info{
+        height: 2rem;
+        line-height: 2rem;
+        margin-top: 0.6rem;
+        font-size: 18px;
+        text-align: center;
+        color: @wechat-green;
+        i{
+            font-size: 28px;
+            padding: 0 0.1rem;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        span{
+            // vertical-align: middle;
+            display: inline-block;
+        }
+    }
+}
+
+.campaign-question{
+    width: 90%;
+    margin: 0.6rem auto;
+    background-color: #fff;
+    border-radius: 0.04rem 0.04rem 0 0;
+    box-shadow: 2px 2px 3px #ccc;
+    overflow: hidden;
+    .header{
+        height: 0.2rem;
+        display: flex;
+        overflow: hidden;
+        .color-block{
+            flex:1;
+        }
+    }
+    .form-wraper{
+        .title{
+            line-height: 1.6rem;
+            text-align: center;
+            font-size: 16px;
+        }
+        .input-item{
+            padding: 0 0.3rem;
+            margin-bottom: 0.4rem;
+            .label{
+                display: inline-block;
+                line-height: 0.4rem;
+                padding-bottom: 0.14rem;
+                span{
+                    .tip{
+                        color:#31c4fa;
+                        font-style: normal;
+                    }
+                }
+            }
+            .text-input{
+                position: relative;
+                input{
+                    width: 100%;
+                    height: 0.8rem;
+                    line-height: 0.8rem;
+                    padding: 0.2rem 0.1rem;
+                    border:1px solid #ccc;
+                    border-radius: 2px;
+                    font-size: 14px;
+                    -webkit-appearance:none;
+                    display: inline-block; 
+                    vertical-align: middle;
+                }
+                .clear{
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                    padding-right: 0.2rem;
+                    height: 100%;
+                    line-height: 0.8rem;
+                    font-size: 12px;
+                    color: #999;
+                }
+                .code-btn{
+                    width: 30%;
+                    border:none;
+                    background-color: @distribution-green;
+                    color: #fff;
+                    padding: 0px!important;
+                }
+                .code-disbaled{
+                    background-color: #ccc;
+                }
+            }
+            .check-input{
+                border:1px solid #ccc;
+                border-radius: 2px;
+                >div{
+                    padding: 0.2rem;
+                    border-bottom: 1px solid #eee;
+                    &:last-child{
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+    .submit-btn{
+        margin: 0.6rem 0;
+        height: 1rem;
+        line-height: 1rem;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        border: none;
+        background-color: @main-red;
+        border-radius: 2px;
+    }
+    .submit-btn-disable{
+        background-color: #ccc;
+    }
+}

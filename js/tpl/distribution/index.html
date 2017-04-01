@@ -1,0 +1,245 @@
+<!-- <div class="distribution-index" ng-controller="distributionIndexPageCtrl" id="J_distributionIndexPage">
+    <div><img src="../../../image/index/topBanner.png"></div>
+    <div ng-if="userInfo.type>=2" ui-sref="distribution.center"><img src="../../../image/index/singup.png"></div>
+    <div ng-if="userInfo.type<=1" ui-sref="distribution.singup({type:userInfo.type})"><img src="../../../image/index/singup.png"></div>
+    <div class="desc-section">
+        <div class="item">
+            <div class="title">活动时间</div>
+            <div class="content">仅限888名会员，售完即止</div>
+        </div>
+        <div class="item">
+            <div class="title">如何加入？</div>
+            <div class="content">活动期间点击上方<b>“抢会员 领大礼”</b>按钮，并成功付款后即可成为翼起学合伙代理人。</div>
+        </div>
+    </div>
+    <div class="desc-section">
+        <div class="item">
+            <div class="title">会员福利雨</div>
+            <div class="content">
+                <ul class="clearfix">
+                    <li class="clearfix">
+                        <div class="left" class="clearfix">
+                            <div class="image-logo">
+                                <img src="../../../image/index/ticket.png" alt="">
+                            </div>
+                            <p class="text">每天抽取1张迪斯尼门票！中奖率超过50%，连续抽取20天</p>
+                        </div>
+                        <div class="image-money clearfix">
+                            <img src="../../../image/index/money.png" alt="">
+                            <span>￥420</span>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left" class="clearfix">
+                            <div class="image-logo">
+                                <img src="../../../image/index/course.png" alt="">
+                            </div>
+                            <p class="text">全年共24次教育大咖育儿课程（线上）,与杨澜、张怡筠等大咖互动</p>
+                        </div>
+                        <div class="image-money clearfix">
+                            <img src="../../../image/index/money.png" alt="">
+                            <span>￥480</span>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left" class="clearfix">
+                            <div class="image-logo">
+                                <img src="../../../image/index/events.png" alt="">
+                            </div>
+                            <p class="text">免费参加由翼起学举办的线下活动2次(含礼品)</p>
+                        </div>
+                        <div class="image-money clearfix">
+                            <img src="../../../image/index/money.png" alt="">
+                            <span>￥500</span>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left nborder" class="clearfix">
+                            <div class="image-logo">
+                                <img src="../../../image/index/push.png" alt="">
+                            </div>
+                            <p class="text">每周根据会员特性精准推送优选的少儿活动和课程，免除选择烦恼</p>
+                        </div>
+                        <div class="image-money clearfix">
+                            <img src="../../../image/index/money.png" alt="">
+                            <span>￥???</span>
+                        </div>
+                    </li>
+                    <li class="singup-btn-group">
+                        <a ng-href="{{link.course}}"><img src="../../../image/index/course_btn.png" alt=""></a>
+                        <a ng-href="{{link.campaign}}"><img src="../../../image/index/campaign_btn.png" alt=""></a>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left" class="clearfix">
+                            <div class="image-logo">
+                                <img src="../../../image/index/travel.png" alt="">
+                            </div>
+                            <p class="text">独享翼起学游学、旅游抽奖机会（共2位）</p>
+                        </div>
+                        <div class="image-money clearfix">
+                            <img src="../../../image/index/money.png" alt="">
+                            <span>￥3W</span>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left" class="clearfix">
+                            <div class="image-logo">
+                                <img src="../../../image/index/discount.png" alt="">
+                            </div>
+                            <p class="text">平台购课折上折，最低低至5折！</p>
+                        </div>
+                        <div class="image-money clearfix">
+                            <img src="../../../image/index/money.png" alt="">
+                            <span>￥480</span>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left nborder" class="clearfix">
+                            <div class="image-logo">
+                                <img src="../../../image/index/return.png" alt="">
+                            </div>
+                            <p class="text">独享翼起学推荐返利系统，返利不封顶，<br>越 “转” 越过瘾</p>
+                        </div>
+                        <div class="image-money clearfix">
+                            <img src="../../../image/index/money.png" alt="">
+                            <span>￥500</span>
+                        </div>
+                    </li>
+                    <img src="../../../image/index/gaodale.png" alt="">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="desc-section">
+        <div class="item">
+            <div class="title">推广流程</div>
+            <div class="content">
+                <p>成功成为翼起学会员合伙人后，点击“开始推广”并选择推广产品后，可看到推广小图标“赚”，分享产品到朋友圈或微信好友。返回到会员中心，即可查询收入情况。</p>
+                <div class="image-group clearfix">
+                    <div class="group-items f-l" ng-click="initPreview('http://cdn.4001583721.com/distribution-p-1.png')">
+                        <span>1.</span>
+                        <br>
+                        <img src="http://cdn.4001583721.com/distribution-p-1.png" alt="">
+                    </div>
+                    <div class="group-items f-r" ng-click="initPreview('http://cdn.4001583721.com/distribution-p-2.png')">
+                        <span>2.</span>
+                        <br>
+                        <img src="http://cdn.4001583721.com/distribution-p-2.png" alt="">
+                    </div>
+                    <div class="group-items f-l" ng-click="initPreview('http://cdn.4001583721.com/distribution-p-3.png')">
+                        <span>3.</span>
+                        <br>
+                        <img src="http://cdn.4001583721.com/distribution-p-3.png" alt="">
+                    </div>
+                    <div class="group-items f-r" ng-click="initPreview('http://cdn.4001583721.com/distribution-p-4.png')">
+                        <span>4.</span>
+                        <br>
+                        <img src="http://cdn.4001583721.com/distribution-p-4.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title">结算返利方式</div>
+            <div class="content">当推荐给好友并且支付成功后，翼起学将立即通过企业红包返还，红包奖不停，越转越过瘾</div>
+        </div>
+    </div>
+    <div class="desc-section">
+        <div class="item">
+            <div class="title">翼起学介绍</div>
+            <div class="content">
+                <p class="easy-text">2013年7月成立并脱胎于中国电信教育百事通，总部设在上海，将在北京、杭州、广州、郑州、南昌设立办事处。</p>
+
+                <p class="easy-text">目前覆盖市内8个街道办、妇联、工商联、23个幼儿园和小学，服务超过12万家长和孩子。</p>
+
+                <p class="easy-text">已入驻4万多机构，包括新东方、昂立外语、龅牙兔、新爱婴，标杆等。</p>
+
+                <p class="easy-text">囊括海量少儿教育课程（日更替50门），包含益智启蒙类、才艺类、课外辅导类、运动类、情商类、早/晚托班等。</p>
+
+                <p class="easy-text">独家发布120个线上、线下、自营品牌活动信息，例如年度12期城市生存挑战赛、大咖翼课堂、亲子活动、体验课、少儿安全讲座等既锻炼、又公益，既积极向上、又不失乐趣的活动。</p>
+
+                <p class="easy-text">翼起学还拥有央视微电影教育频道的独立运营权，致力于将优质教育信息广泛传播、普及大众，真正实现全民随地学习、随时分享的企业理念，打造全国最优质、最权威的少儿教育信息服务平台。</p>
+                <p><img src="../../../image/index/code.png"></p>
+            </div>
+        </div>
+    </div>
+    <div class="distribution-money-button" ng-distribution-dialog qr-code-url="{{shareLink}}" ng-if="userInfo.isMember"></div>
+</div> -->
+<div class="distribution-index-new" ng-controller="distributionIndexPageCtrl" id="J_distributionIndexPage">
+    <div class="yearUpdate-top yearUpdate-item">
+        <div class="item clearfix">
+            <img src="../../../image/principal/year_update_0606_01.jpg" alt="">
+        </div>
+        <div class="item clearfix">
+            <img src="../../../image/principal/year_update_02.jpg" alt="">
+        </div>
+        <div class="item clearfix">
+            <img src="../../../image/principal/year_update_0606_03.jpg" alt="">
+        </div>
+        <div class="item clearfix">
+            <img src="../../../image/principal/year_update_04.jpg" alt="">
+        </div>
+        <div class="item example clearfix">
+            <img src="../../../image/principal/year_update_05.jpg" alt="">
+            <button type="button" ui-sref="distribution.help">点击查看示范</button>
+        </div>
+        <div class="item clearfix">
+            <img src="../../../image/principal/year_update_09.jpg" alt="">
+        </div>
+        <div class="item clearfix banner">
+            <img src="../../../image/principal/year_update_0606_06.jpg" alt="">
+        </div>
+        <!-- <div class="text clearfix">
+            <span class="left">特价时间：</span>
+            <div class="right">
+                <p>5月31日 0:00 至 6月6日 23:59，拼团价299元，6月7日 0:00 恢复平日推广原价339元</p>
+            </div>
+        </div> -->
+        <div class="text clearfix">
+            <span class="left">有效时长：</span>
+            <div class="right">
+                <p>自购卡日起1年内有效，用完可再次续购</p>
+            </div>
+        </div>
+        <div class="text clearfix">
+            <span class="left">注意事项：</span>
+            <div class="right">
+                <p>1. 购买会员亲子年卡后进入会员中心，可查看自己的会员信息、推广收入信息以及有效期。</p>
+                <p>2. 在法律范围允许内，翼起学可能对活动的规则、条款作出适当修改和调整。</p>
+                <p>3. 对于以不正当手段购买会员亲子年卡的用户，包括但不限于恶意套现、恶意下单、恶意注册、利用程序漏洞等手段，翼起学有权在不事先通知的情况下取消其会员资格并收回所有福利政策。</p>
+            </div>
+        </div>
+    </div>
+    <div class="yearUpdate-item yearUpdate-avatar">
+        <div class="item clearfix">
+            <img src="../../../image/principal/year_update_07.jpg" alt="">
+        </div>
+        <div class="avatar clearfix">
+            <div ng-repeat="item in memberInfoList"><img ng-src="{{item.avatar}}" alt=""></div>
+        </div>
+        <i ng-if="memberInfoList.length==35" class="icon iconfont icon-ellipsis"></i>
+    </div>
+    <div class="yearUpdate-item yearUpdate-content">
+        <div class="item clearfix">
+            <img src="../../../image/principal/year_update_08.jpg" alt="">
+        </div>
+        <div class="contents">
+            <p>2014年5月成立并脱胎于中国电信教育百事通，总部设在上海，将在北京、杭州、广州、郑州等城市设立办事处。</p>
+            <p>目前覆盖市内数十个街道办、妇联、工商联、幼儿园和小学，服务超过12万家长和孩子。</p>
+            <p>已入驻4万多机构，包括新东方、昂立外语、龅牙兔、新爱婴，标杆等。</p>
+            <p>囊括海量少儿教育课程（实时更新），包含益智启蒙类、才艺类、课外辅导类、运动类、情商类、早/晚托班等类别。</p>
+            <p>独家发布300个线上、线下、自营品牌活动信息，例如年度24期城市生存挑战赛、大咖翼课堂、亲子活动、体验课、少儿安全讲座等既锻炼、又公益，既积极向上、又不失乐趣的活动。</p>
+            <p>翼起学还拥有央视微电影教育频道的独立运营权，致力于将优质教育信息广泛传播、普及大众，真正实现全民随地学习、随时分享的企业理念，打造全国最优质、最权威的少儿教育信息服务平台。</p>
+            <p><img src="../../../image/index/code2.jpg"></p>
+        </div> 
+    </div>
+    <div class="distribution-money-button" ng-distribution-dialog qr-code-url="{{shareLink}}" ng-if="userInfo.isMember"></div>
+    <div class="detail-footer">
+        <a href="tel:13917617647">
+            <img src="../../image/school_phone_bg.png" alt="" class="phone-bg">
+            <span>电话垂询</span>
+        </a>
+        <a ng-if="userInfo.type>=2" ui-sref="distribution.center">会员中心</a>
+        <a ng-if="userInfo.type<=1" ui-sref="distribution.singup({type:userInfo.type})">立即报名</a>
+    </div>
+</div>

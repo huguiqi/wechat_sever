@@ -1,0 +1,90 @@
+<form name="myForm" novalidate>
+    <div class="campaign-question" ng-controller="campaignQuestionCtrl">
+        <div class="header">
+            <span class="color-block" style="background: #129c85"></span>
+            <span class="color-block" style="background: #18b59a"></span>
+            <span class="color-block" style="background: #b7392b"></span>
+            <span class="color-block" style="background: #d04f53"></span>
+            <span class="color-block" style="background: #ee9e2f"></span>
+            <span class="color-block" style="background: #fbc702"></span>
+            <span class="color-block" style="background: #31c4fa"></span>
+        </div>
+        <div class="form-wraper">
+            <h4 class="title">参与人信息({{editIndex+1}}/{{order.num}})</h4>
+            <div class="input-item">
+                <label class="label">姓名：</label>
+                <div class="text-input">
+                    <input class="text-input" type="text" placeholder="请填写您的真实姓名" name="name" ng-model="questionForm.name" required maxlength="6"></input>
+                </div>
+            </div>
+            <div class="input-item">
+                <label class="label">手机：</label>
+                <div class="text-input">
+                    <input class="text-input" type="tel" placeholder="请填写您的手机号码" name="mobile" ng-model="questionForm.mobile" required pattern="^(13[0-9]|15[0-9]|17[0-9]|18[0-9]|14[0-9])[0-9]{8}$" auto-focus="questionForm.mobile==''"></input>
+                    <span class="clear" ng-show="questionForm.mobile!=''" ng-click="questionForm.mobile=''">点击修改</span>
+                </div>
+            </div>
+            <div class="input-item" ng-repeat="item in questionList">
+                <label class="label" ng-if="item.type==1"><span>{{item.title}}<i class="tip">[单选问题]</i></span> </label>
+                <label class="label" ng-if="item.type==2"><span>{{item.title}}<i class="tip">[多选问题]</i></span></label>
+                <label class="label" ng-if="item.type==3"><span>{{item.title}}</span> </label>
+                <div class="check-input" ng-if="item.type==1">
+                    <div class="c-form-check-wraper" ng-repeat="question in item.item">
+                        <input type="radio" id="{{question._id}}" name="{{item._id}}" ng-value="question._id" ng-checked="$index==0" ng-model="questionForm[item._id+'_'+item.type]">
+                        <label for="{{question._id}}">{{question.questionVal}}</label>
+                    </div>
+                </div>
+                <div class="check-input" ng-if="item.type==2">
+                    <div class="c-form-check-wraper" ng-repeat="question in item.item">
+                        <input type="checkbox" id="{{question._id}}" name="{{item._id}}"
+                               ng-true-value='"{{question._id}}"'
+                               ng-false-value='""'
+                               ng-model="questionForm[item._id+'_'+item.type][$index]">
+                        <label for="{{question._id}}">{{question.questionVal}}</label>
+                    </div>
+                </div>
+                <div class="text-input" ng-if="item.type==3">
+                    <input class="text-input" placeholder="请填写答案" required name="questionForm.{{item._id}}_{{item.type}}" ng-model="questionForm[item._id+'_'+item.type]"/>
+                </div>
+            </div>
+            <!-- <div class="input-item">
+                <label class="label"><span>多选</span> <span class="tip f12">[多选问题]</span></label>
+                <div class="check-input">
+                    <div class="c-form-check-wraper">
+                        <input type="checkbox" id="checkbox4">
+                        <label for="checkbox4">您好</label>
+                    </div>
+                    <div class="c-form-check-wraper">
+                        <input type="checkbox" id="checkbox5">
+                        <label for="checkbox5">您好</label>
+                    </div>
+                </div>
+            </div>
+            <div class="input-item">
+                <label class="label"><span>问题1</span> <span class="tip f12">[单选问题]</span></label>
+                <div class="check-input">
+                    <div class="c-form-check-wraper">
+                        <input type="radio" id="radio-one" name="radio">
+                        <label for="radio-one">男孩</label>
+                    </div>
+                    <div class="c-form-check-wraper">
+                        <input type="radio" id="radio-two" name="radio">
+                        <label for="radio-two">女孩</label>
+                    </div>
+                </div>
+            </div>
+            <div class="input-item">
+                <label class="label">问答</label>
+                <div class="text-input">
+                    <input class="text-input" placeholder="请填写您的电话"></input>
+                </div>
+            </div> -->
+            <div class="input-item">
+                <div class="submit-btn" ng-click="submit(myForm)" ng-class="{'submit-btn-disable':myForm.$invalid || !validateQuestion()|| saveStatus.loading}">{{saveStatus.text}}</div>  
+            </div>
+        </div>
+        <div class="c-collect-tips" ng-if="tipView.show">
+            <p class="tipText">{{tipView.text}}</p>
+        </div>
+    </div>
+</form>

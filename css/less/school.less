@@ -1,0 +1,423 @@
+.school-detail{
+    background: #50e3c2;
+    width: 100%;
+    color: @main-font-color;
+    .detail-top{
+        min-height: 7.5rem;
+        color: #fff;
+        position: relative;
+        .school-bg{
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+        .article{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding-top: 2rem;
+        }
+        .outer-outer{
+            height: 3.2rem;
+            width: 3.2rem;
+            border-radius: 3.2rem;
+            margin:0 auto;
+            border:1px solid rgba(255,255,255,.15);
+            position: relative;
+            .outer-inside{
+                height: 2.5rem;
+                width: 2.5rem;
+                border-radius:2.5rem;
+                border:1px solid rgba(255,255,255,.55);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -1.25rem;
+                margin-top: -1.25rem;
+                .logo{
+                    height: 2rem;
+                    width: 2rem;
+                    border-radius: 2rem;
+                    background:#fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -1rem;
+                    margin-left: -1rem;
+                    .school-logo{
+                        height: 1.8rem;
+                        width:1.8rem;
+                        border-radius:2rem;
+                        display: block;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        margin-left: -0.9rem;
+                        margin-top: -0.9rem;
+                    }
+                }
+            }
+        }
+        .name{
+            width: 100%;
+            line-height: 0.5rem;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            padding:0.2rem 10%;
+        }
+        .title{
+            width: 5rem;
+            height: 0.5rem;
+            line-height: 0.5rem;
+            background: #505050;
+            border-radius: 0.4rem;
+            padding:0 0.1rem;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            text-align: center;
+            margin:0 auto;
+            margin-bottom: 0.1rem;
+        }
+        .look-collect{
+            line-height: 0.4rem;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,.8);
+            span{
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .squire{
+                width:3px;
+                height: 3px;
+                border-radius: 3px;
+                background: rgba(255,255,255,.8);
+                margin:0 0.2rem;
+            }
+        }
+    }
+    .detail-content{
+        padding:0 0.3rem;
+        margin-bottom: 0.8rem;
+        position: relative;
+        text-align: justify;
+        .school-c-bg{
+            width: 100%;
+            float: left;
+        }
+        .container{
+            height: 100%;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0.15rem 0.15rem rgba(0,0,0,.3);
+            float: left;
+            padding:0.3rem;
+            padding-top:0.6rem;
+            margin-top: -0.3rem;
+            .html{
+                padding-bottom: 0.3rem;
+            }
+        }
+        .content-title{
+            height: 0.4rem;
+            width: 100%;
+            line-height: 0.4rem;
+            padding:0 0.4rem;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #6d6d6d;
+            margin-bottom: 0.5rem;
+            .show{
+                height: 0.4rem;
+                width: 0.7rem;
+            }
+            .mark-left{
+                float: left;
+            }
+            .mark-right{
+                float: right;
+            }
+        }
+        .line{
+            padding-top: 0.3rem;
+            .head{
+                height: 0.6rem;
+                padding-bottom: 0.2rem;
+                border-bottom: 1px solid @main-bottoms-lines;
+                span{
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .squire{
+                    height: 0.4rem;
+                    width: 0.2rem;
+                    background: #50e3c2;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .text{
+                    display: inline-block;
+                    line-height: 0.4rem;
+                    vertical-align: middle;
+                    padding-left: 0.2rem;
+                    font-weight: bold;
+                    color: #333;
+                }
+            }
+            .l-b-content{
+                padding:0.2rem 0;
+                line-height: 0.4rem;
+            }
+        }
+        .recommend{
+            .l-b-content{
+                padding:0.5rem 0!important;
+            }
+            .item{
+                height: 3rem;
+                width: 40%;
+                margin:0 5%;
+                padding:0.7rem 0.3rem 0.3rem;
+                background: #c7ffec;
+                position: relative;
+                float: left;
+                border-radius: 0.2rem;
+                .radius{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0.5rem;
+                    height: 0.6rem;
+                    z-index: 100;
+                }
+                .text{
+                    height: 2rem;
+                    width: 100%;
+                    line-height: 0.7rem;
+                    text-align: center;
+                    background: #fff;
+                    border-radius: 0.2rem;
+                    padding:0.3rem 0;
+                    .title{
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                    span{
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    .cicle{
+                        height: 0.1rem;
+                        width: 0.1rem;
+                        background: @main-red;
+                        display: inline-block;
+                        margin-right: 0.1rem;
+                        border-radius: 0.1rem;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+        .address{
+            .left{
+                width: 85%;
+                float: left;
+            }
+            .right{
+                height: 0.6rem;
+                width: 15%;
+                text-align: center;
+                position: relative;
+                float: right;
+                .icon{
+                    font-size: 24px;
+                    position: absolute;
+                    bottom:-13px;
+                    left: 50%;
+                    margin-left: -5px;
+                    color: #50e3c2;
+                }
+            }
+        }
+        .permit{
+            .l-b-content{
+                .look{
+                    color: @main-red;
+                }
+                .mark-img{
+                    height: 3rem;
+                    width: 100%;
+                    margin-top: 0.2rem;
+                }
+            }
+        }
+        .comment{
+            padding-bottom: 0.3rem;
+            .button{
+                height: 0.8rem;
+                line-height: 0.8rem;
+                width: 80%;
+                border-radius: 0.1rem;
+                background: @main-red;
+                color: #fff;
+                text-align: center;
+                margin:0.4rem auto;
+            }
+            .list-content{
+                li{
+                    padding:0.3rem 0;
+                    border-bottom: 1px solid @main-bottoms-lines;
+                    position: relative;
+                    &:last-child{
+                        border-bottom: none;
+                    }
+                    .photo{
+                        height: 1rem;
+                        width: 1rem;
+                        border-radius: 1rem;
+                        position: absolute;
+                        top: 0.2rem;
+                        left: 0;
+                    }
+                    .right{
+                        width: 100%;
+                        padding-left: 1.3rem;
+                        font-size: 12px;
+                        .name{
+                            height: 0.5rem;
+                            line-height: 0.5rem;
+                            color: #333;
+                            font-size: 12px;
+                            span{
+                                line-height: 0.5rem;
+                            }
+                            .nick{
+                                float: left;
+                            }
+                            .num{
+                                float: right;
+                                color: #bbb;
+                            }
+                        }
+                        .time{
+                            height: 0.5rem;
+                            line-height: 0.5rem;
+                            font-size: 12px;
+                        }
+                        .text{
+                            padding-top: 0.1rem;
+                            line-height: 0.4rem;
+                            color: #333;
+                        }
+                    } 
+                }
+            }
+            .tips{
+                padding:0.4rem 0 0 0 ;
+                text-align: center;
+            }
+            .comment-form{
+                width: 100%;
+                height: 1.2rem;
+                padding:0.15rem;
+                background: @main-gray-bg;
+                position: fixed;
+                bottom: 0px;
+                left: 0px;
+                z-index: 100;
+                input{
+                    height: 100%;
+                    width: 80%;
+                    float: left;
+                    padding: 0 0.1rem;
+                    border-radius: 0px;
+                    border:1px solid #ccc;
+                    -webkit-appearance: none;
+                }
+                .btn{
+                    float: right;
+                    width: 18%;
+                    height: 100%;
+                    padding:0 0.1rem;
+                    color: #fff;
+                    background: @main-red;
+                    border:none;
+                    border-radius: 2px;
+                }
+            }            
+        }
+        .bottom-logo{
+            height: 1rem;
+            width: 1rem;
+            border-radius: 1rem;
+            position: absolute;
+            left: 50%;
+            bottom: -0.5rem;
+            margin-left: -0.5rem;
+        }
+    }
+    .detail-bottom{
+        height: 0.8rem;
+        line-height: 0.8rem;
+        text-align: center;
+        margin-bottom: 0.2rem;
+        .download{
+            height: 100%;
+            width: 100%;
+            display: block;
+            color: #fff;
+        }
+    }
+}
+.school-course-list{
+    .school-message{
+        height: 2rem;
+        padding:0.2rem;
+        width: 100%;
+        background: #fff;
+        margin-bottom: 0.2rem;
+        .container{
+            padding-left: 0.2rem;
+            width: 100%;
+            position: relative;
+        } 
+        .logo{
+            height: 1.6rem;
+            width: 1.6rem;
+            position: absolute;
+            left: 0.2rem;
+            top: 0;
+        }
+        .message{
+            width: 100%;
+            padding:0.2rem 0;
+            line-height: 0.6rem;
+            font-size: 16px;
+            padding-left: 1.8rem;
+            span{
+                display: block;
+            }
+            .name{
+                font-size: 18px;
+                color: #333;
+            }
+            .distance{
+                color: #a1a1a1;
+            }
+        }
+    }
+    .course-list-wraper{
+        .c-item{
+            .bottom-icon{
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

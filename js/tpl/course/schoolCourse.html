@@ -1,0 +1,33 @@
+<div class="page-course-list school-course-list"  ng-controller="schoolCourseCtrl">
+    <div class="school-message clearfix" ui-sref="course.schoolDetail({id:schoolData._id})">
+        <div class="container">
+            <img ng-src="{{schoolData.logo}}" alt="" class="logo">
+            <p class="message clearfix">
+                <span class="name textnowrap ellipsis">{{schoolData.name}}</span>
+                <span class="distance textnowrap ellipsis">距离当前位置:&nbsp;&nbsp;{{dist | distance}}</span>
+            </p>
+        </div>
+    </div>
+    <div class="course-list-wraper">
+        <ul class="c-item clearfix">
+            <li ui-sref="course.detail({id:item._id})" ng-repeat="item in courseList" class="school-course-list">
+                <div class="course-wraper">
+                    <div class="left-content">
+                        <div class="title">{{item.name}}</div>
+                        <div class="icon-item" ng-if="item.classType>0">
+                            <span class="icon-section try"><i class="icon iconfont icon-zan"></i>可试听</span>
+                        </div>
+                        <div class="icon-item bottom-icon">
+                            <span class="icon-section" ng-if="item.dist<3000"><i class="icon iconfont icon-walk"></i>{{item.dist | distance}}</span>
+                            <span class="icon-section" ng-if="item.dist>=3000"><i class="icon iconfont icon-car"></i>{{item.dist | distance}}</span>
+                            <span class="icon-section c-main-red"><i class="icon iconfont icon-heart"></i>{{item.count}}</span>
+                        </div>
+                    </div>
+                    <div class="right-image">
+                        <img ng-src="{{item.cover || 'http://cdn.4001583721.com/default_avatar1.png'}}?imageView2/1/w/600/h/500/q/100">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="course-person-center-wraper" ng-controller="campaignCenterNav">
+    <div class="nav" ng-class="{'hiddenNav':!showNav}">
+        <a ng-href="{{link.campaign}}" ng-click="showNav=false">首页</a>
+        <a ng-href="{{link.course}}" ng-click="showNav=false">找课程</a>
+        <a ui-sref="campaign.myCampaign" ng-click="showNav=false">我的</a>
+    </div>
+    <span class="avatar" ng-click="showNav=!showNav" ng-class="{'opacity-bg':showNav}"><img ng-src="{{userInfo.avatar}}"></span>
+</div>
+<div ui-view  style="min-height:100%"></div>

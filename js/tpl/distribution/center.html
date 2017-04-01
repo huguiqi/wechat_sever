@@ -1,0 +1,87 @@
+<div class="distribution-center" ng-controller="distributionCenterCtrl" id="J_distributionCenter">
+	<div ng-if="userInfo.isMember">
+		<div class="dashbord">
+			<p class="title clearfix">
+				<span class="f-l">累计辛苦费(元)</span>
+				<span class="f-r t-r">排名 {{centerDetail.rankCount}}</span>
+			</p>
+			<p class="total">{{centerDetail.data.totalEarn | number:2}}</p>
+			<p class="total-desc">(只含线上收益，不含人工结算部分)</p>
+			<div class="table-section">
+				<div class="section" ng-click="goSale(1)">
+					<p class="tips" ng-if="centerDetail.typeCount.typeCount1>0">{{centerDetail.typeCount.typeCount1}}</p>
+					<p class="number">{{centerDetail.data.memberCount}}<i>个</i></p>
+					<p class="desc">推广年卡</p>
+				</div>
+				<div class="section">
+					<p class="number">{{centerDetail.data.memberEarn | number:2}}<i>元</i></p>
+					<p class="desc">推广年卡辛苦费</p>
+				</div>
+			</div>
+			<div class="table-section">
+				<div class="section" ng-click="goSale(2)">
+					<p class="tips" ng-if="centerDetail.typeCount.typeCount2>0">{{centerDetail.typeCount.typeCount2}}</p>
+					<p class="number">{{centerDetail.data.campaignCount}}<i>个</i></p>
+					<p class="desc">推广活动</p>
+				</div>
+				<div class="section">
+					<p class="number">{{centerDetail.data.campaignEarn | number:2}}<i>元</i></p>
+					<p class="desc">推广活动辛苦费</p>
+				</div>
+			</div>
+			<div class="table-section">
+				<div class="section" ng-click="goSale(3)">
+					<p class="tips" ng-if="centerDetail.typeCount.typeCount3>0">{{centerDetail.typeCount.typeCount3}}</p>
+					<p class="number">{{centerDetail.data.courseCount}}<i>个</i></p>
+					<p class="desc">推广课程</p>
+				</div>
+				<div class="section">
+					<p class="number">{{centerDetail.data.courseEarn | number:2}}<i>元</i></p>
+					<p class="desc">推广课程辛苦费</p>
+				</div>
+			</div>
+		</div>
+		<div class="person-wraper">
+			<p class="avater">
+				<img ng-src="{{userInfo.avatar}}">
+			</p>
+		</div>
+		<div class="button-wraper">
+			<a ui-sref="distribution.products" class="c-distribution-button">开始推广</a>
+		</div>
+		<div class="result-wraper">
+			<div class="title">蜜蜂排行榜(前20)</div>
+			<div class="tab-button-wraper">
+				<span ng-class="{active:pageConfig.listType==1}" ng-click="getList(1)">总收入</span>
+				<span ng-class="{active:pageConfig.listType==2}" ng-click="getList(2)">年卡收入</span>
+				<span ng-class="{active:pageConfig.listType==3}" ng-click="getList(3)">代理收入</span>
+			</div>
+			<div class="result-list">
+				<table>
+					<tr>
+						<td width="25%">排名</td>
+						<td width="50%">姓名</td>
+						<td width="25%" class="t-r">总收入(元)</td>
+					</tr>
+					<tr ng-repeat="item in centerList">
+						<td>{{$index+1}}</td>
+						<td>
+							<img ng-src="{{item.creator.avatar}}">
+							<span>{{item.creator.nick}}</span>
+						</td>
+						<td class="t-r">
+							<span ng-if="pageConfig.listType==1">{{item.totalEarn}}</span>
+							<span ng-if="pageConfig.listType==2">{{item.memberEarn}}</span>
+							<span ng-if="pageConfig.listType==3">{{item.proxyEarn}}</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div ng-if="!userInfo.isMember" class="not-member-wraper">
+		<div class="button-wraper">
+			<a ui-sref="distribution.index" class="c-distribution-button">申请成为会员合伙人</a>
+		</div>
+	</div>
+</div>

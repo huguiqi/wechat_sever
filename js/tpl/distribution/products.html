@@ -1,0 +1,68 @@
+<div ng-controller="distributionProductsCtrl" class="distribution-products clearfix" id="J_distrbutionProducts">
+	<div class="products-tab">
+		<div class="tab-button-wraper">
+			<span ng-class="{active:pageConfig.listType==1}" ng-click="updateList(1)">会员</span>
+			<span ng-class="{active:pageConfig.listType==2}" ng-click="updateList(2)">课程</span>
+			<span ng-class="{active:pageConfig.listType==3}" ng-click="updateList(3)">活动</span>
+		</div>
+	</div>
+		<div class="products-header">
+			<span class="f-l">产品</span>
+			<span class="f-r">佣金</span>
+		</div>
+		<div class="products-list">
+			<div class="inner" ng-if="pageConfig.listType==1">
+				<div class="list" ng-click="goNewPages($index+1)" ng-repeat="item in list track by $index">
+					<div class="detail clearfix">
+						<img src="../../../image/product.png">
+						<span class="right-top-num">{{item.payRate}}</span>
+						<span class="right-bottom-num c-main-red">预计辛苦费￥{{item.earn | number:2}}</span>
+					</div>
+					<p class="sub-name">{{item.title}}</p>
+				</div>
+			</div>
+			<div class="inner" ng-if="pageConfig.listType==2">
+				<div class="list" ng-click="goNewPages(item.course._id)" ng-repeat="item in courseList track by $index" ng-if="userInfo.type<=2">
+					<div class="detail clearfix">
+						<img ng-src="{{item.course.cover}}?imageView2/1/w/300/h/160/q/100">
+						<span class="right-top-num">2%</span>
+						<span class="right-bottom-num c-main-red" ng-if="item.class.length>1">预计辛苦费￥{{item.minPrice*0.02 | number:2}} ~ {{item.maxPrice*0.02 | number:2}}</span>
+						<span class="right-bottom-num c-main-red" ng-if="item.class.length==1">预计辛苦费￥{{item.minPrice*0.02 | number:2}}</span>
+						<span class="right-bottom-num c-main-red" ng-if="item.class.length<1">暂无辛苦费</span>
+					</div>
+					<p class="sub-name">{{item.course.name}}</p>
+				</div>
+				<div class="list" ng-click="goNewPages(item.course._id)" ng-repeat="item in courseList track by $index" ng-if="userInfo.type>2">
+					<div class="detail clearfix">
+						<img ng-src="{{item.course.cover}}?imageView2/1/w/300/h/160/q/100">
+						<span class="right-top-num">8%</span>
+						<span class="right-bottom-num c-main-red" ng-if="item.class.length>1">预计辛苦费￥{{item.minPrice*0.08 | number:2}} ~ {{item.maxPrice*0.08 | number:2}}</span>
+						<span class="right-bottom-num c-main-red" ng-if="item.class.length==1">预计辛苦费￥{{item.minPrice*0.08 | number:2}}</span>
+						<span class="right-bottom-num c-main-red" ng-if="item.class.length<1">暂无辛苦费</span>
+					</div>
+					<p class="sub-name">{{item.course.name}}</p>
+				</div>
+			</div>
+			<div class="inner" ng-if="pageConfig.listType==3">
+				<div class="list" ng-click="goNewPages(item.campaignId._id)" ng-repeat="item in campaignList track by $index">
+					<div class="detail clearfix">
+						<img ng-src="{{item.campaignId.cover}}?imageView2/1/w/300/h/160/q/100">
+						<span class="right-top-num" ng-if="userInfo.type<=2">2%</span>
+						<span class="right-top-num" ng-if="userInfo.type>2">8%</span>
+						<span class="right-bottom-num c-main-red" ng-if="userInfo.type<=2">预计辛苦费￥{{item.price*0.02 | number:2}}</span>
+						<span class="right-bottom-num c-main-red" ng-if="userInfo.type>2">预计辛苦费￥{{item.price*0.08 | number:2}}</span>
+					</div>
+					<p class="sub-name">{{item.campaignId.name}} - {{item.name}}</p>
+				</div>
+			</div>
+		</div>
+	<div class="button-group clearfix">
+		<div class="button">
+			<button ui-sref="distribution.index">会员合伙计划</button>
+		</div>
+		<div class="button">
+			<button ui-sref="distribution.center">返回会员中心</button>
+		</div>
+	</div>
+	<p class="item-tips">{{pageConfig.loadingText}}</p>
+</div>

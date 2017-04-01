@@ -1,0 +1,32 @@
+<div class="course-order clearfix" ng-controller="courseOrderCtrl" id="J_courseOrderPage">
+    <div class="c-order-title c-order-content clearfix">
+        <p class="course-title">{{courseData.name}}</p>
+        <img ng-src="{{courseData.cover}}" alt="" class="course-cover">
+    </div>
+    <div class="c-order-time c-order-content clearfix">
+        <p class="top">课程排期</p>
+        <div class="bottom clearfix">
+            <div class="left">
+                <p class="class-name">{{classData.name}} <span class="type" ng-if="classData.type==2&&classData.auditionperiod>0">体验课</span></p>
+                <p class="class-length">共<span ng-if="classData.type==1 || classData.auditionperiod<1">{{classData.period}}</span><span ng-if="classData.type==2&&classData.auditionperiod>0">{{classData.auditionperiod}}</span><span ng-if="classData.auditionType==1">课时</span><span ng-if="classData.auditionType==2">课次</span></p>
+            </div>
+            <div class="right" ng-if="classData.type==1 || classData.auditionperiod<1">￥{{classData.price*classData.discount/100 | number:2}}</div>
+            <div class="right" ng-if="classData.type==2&&classData.auditionperiod>0">￥{{classData.audition | number:2}}</div>
+        </div>
+    </div>
+    <div class="c-order-message c-order-content clearfix">
+        <p class="top">参与人姓名及电话号码</p>
+        <div class="bottom">
+            <input type="text" class="left" placeholder="请输入参与人姓名" ng-model="pageInfo.name">
+            <input type="text" class="right" placeholder="请输入参与人电话" ng-model="pageInfo.phone">
+        </div>
+    </div>
+    <div class="c-order-bottom clearfix">
+        <div class="left">
+            <p class="num" ng-if="classData.type==1 || classData.auditionperiod<1">￥{{classData.price*classData.discount/100 | number:2}}</p>
+            <p class="num" ng-if="classData.type==2&&classData.auditionperiod>0">￥{{classData.audition | number:2}}</p>
+            <p>合计</p>
+        </div>
+        <p class="right" ng-click="orderUp()">下一步</p>
+    </div>
+</div>

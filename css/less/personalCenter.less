@@ -1,0 +1,234 @@
+.my-campaign{
+    height: 100%;
+    width: 100%;
+    padding:0.2rem 0.2rem 0;
+    color: #b0b0b0;
+    font-size: 12px;
+    >div{
+        width: 100%;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 0 10px rgba(0,0,0,.3);
+    }
+    .campaign-none{
+        height: 4rem;
+        padding-top: 0.3rem;
+        margin-bottom:0.2rem;
+        .title{
+            height: 0.5rem;
+            line-height: 0.5rem;
+            text-align: center;
+            font-size: 16px;
+            color: #fe6b53;
+            margin-bottom: 0.2rem;
+        }
+        .content{
+            height: 0.4rem;
+            line-height: 0.4rem;
+            text-align: center;
+        }
+        .btn{
+            height: 0.8rem;
+            width: 30%;
+            background-color: #fe6b53;
+            color:#fff;
+            border:none;
+            margin-left: 35%;
+            margin-top:1.5rem;
+            border-radius: 0.2rem;
+        }
+    }
+    .campaign-list{
+        padding:0;
+        margin-bottom: 0.2rem;
+        border-top:5px solid transparent;
+        .banner{
+            height: 4rem;
+            width: 100%;
+            display: block;
+            background-color: #f7f7f7;
+        }
+        .title{
+            line-height: 0.4rem;
+            padding: 0.2rem;
+            text-align: center;
+            font-size: 14px;
+            color: #515151;
+        }
+        .message{
+            padding:0 0.35rem;
+            border-bottom: 1px dashed #b0b0b0;
+            .item{
+                line-height: 0.4rem;
+                margin-bottom: 0.2rem;
+                span{
+                    padding-left: 0.1rem;
+                }
+            }
+            .time{
+                line-height: 0.4rem;
+                margin-bottom: 0.2rem;
+            }
+            .address{
+                width: 90%;
+                display: inline-block;
+                line-height: 0.4rem;
+                vertical-align: middle;
+                span{
+                    padding-left: 0.1rem;
+                    width: 85%;
+                    display: inline-block;
+                    vertical-align: top;
+                }
+            }
+            .logo{
+                font-size: 22px;
+                // color: #21b81a;
+                color: #b0b0b0;
+                display: inline-block;
+                background-color:transparent;
+                float: right;
+                border:none;
+            }
+        }
+        .status{
+            line-height: 1rem;
+            text-align: center;
+            display: block;
+            .pay-btn{
+                line-height: 0.8rem;
+                width: 70%;
+                margin: 0 15% 0.4rem 15%;
+                border-radius: 0.06rem;
+                border: none;
+                background-color: @wechat-green;
+                color: #fff;
+                text-align: center;
+            }
+        }
+    }
+    
+    .status-end{
+        border-top-color: #b0b0b0;
+        .status{
+            color: #b0b0b0;
+        }
+    }
+    .status-paid{
+        border-top-color: #21b81a;
+        .status{
+            color: #21b81a;
+        }
+    }
+    .status-unpaid{
+        border-top-color: #fe6b53;
+        .status{
+            color: #fe6b53;
+        }
+    }
+}
+.my-course{
+    .myCourse-header{
+        padding: 0.3rem 0 0.5rem;
+        box-shadow: none;
+        background: none;
+        .header-link{
+            height: 0.8rem;
+            width: 90%;
+            margin-left: 5%;
+            border-radius: 0.8rem;
+            padding: 0.1rem 0.2rem;
+            background: #fff;
+            .button{
+                height: 0.6rem;
+                line-height: 0.6rem;
+                width: 33.3%;
+                border-radius: 0.6rem;
+                float: left;
+                text-align: center;
+                font-size: 16px;
+            }
+            .active{
+                background: @main-red;
+                color: #fff;
+            }
+        }
+    }
+    .m-course-order{
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        .course-list{
+            padding: 0;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,.3);
+            border-radius: 2px;
+            .link-detail{
+                color: @wechat-green;
+            }
+            .banner{
+            }
+            .title{
+                padding:0.2rem;
+            }
+        }
+    }
+    .course-none{
+        height: 1rem;
+        line-height:1rem;
+        width: 70%;
+        margin-left: 15%;
+        background: none;
+        box-shadow: none;
+        color: @main-font-color;
+        font-size: 16px;
+        .text{
+            text-align: center;
+        }
+    }
+    .m-course-collect{
+        background: none;
+        box-shadow: none;
+        .collect-list{
+            border-radius: 2px;
+            margin-bottom: 0.3rem;
+            background: #fff;
+            padding:0 0.3rem;
+            .class-message{
+                padding:0.3rem 0;
+                border-bottom: 1px solid @main-bottoms-lines;
+                position: relative;
+                .cover{
+                    height: 2.5rem;
+                    width: 3rem;
+                    position: absolute;
+                    top: 0.3rem;
+                }
+                .title{
+                    height: 2.5rem;
+                    line-height: 0.5rem;
+                    width: 100%;
+                    padding-left: 3.2rem;
+                    font-size: 16px;
+                    
+                }
+            }
+            .school-message{
+                padding:0.3rem 0;
+                .logo{
+                    height: 1rem;
+                    width: 1rem;
+                    border-radius: 1rem;
+                    float: left;
+                }
+                .text{
+                    height: 1rem;
+                    line-height: 1rem;
+                    padding-left: 0.3rem;
+                    float: left;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

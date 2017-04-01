@@ -1,0 +1,95 @@
+<div class="campaign-detail" ng-controller="campaignDetailCtrl" id="J_campaignDetail">
+    <div class="contents">
+        <div class="tops">
+            <div class="banner" ng-if="imageShow===2">
+                <div id="J_sliderWraper" style="width:100%; height:100%;"></div>
+            </div>
+            <div class="banner" ng-if="imageShow===1">
+                <div style="width:100%; height:100%;">
+                    <img ng-src="{{campaign.images}}?imageView2/1/w/750/h/400/q/100" alt="">
+                </div>
+            </div>
+            <div class="banner" ng-if="imageShow===0">
+                <div style="width:100%; height:100%;">
+                    <img ng-src="{{campaign.cover}}?imageView2/1/w/750/h/400/q/100" alt="">
+                </div>
+            </div>
+            <p class="campaign-title">{{campaign.name}}</p>
+        </div>
+        <div class="messages">
+            <ul style="margin-bottom: 0px;">
+                <!-- <li><span class="square"></span><span class="title">基本信息</span></li> -->
+                <li>
+                    <div class="inner">
+                        <i class="icon iconfont icon-time left-icon" style="margin-top:1px;color: green"></i>
+                        <span>{{campaign.startTime | mdate:'YYYY-MM-DD HH:mm'}} 至 {{campaign.endTime | mdate:'YYYY-MM-DD HH:mm'}}</span>
+                        <div class="subInfo" ng-show="campaignIsOver">报名已结束</div>
+                        <div class="subInfo" id="J_timer" ng-show="!campaignIsOver">离报名结束还有0天0小时00分00秒</div>
+                    </div>
+                </li>
+                <li ng-click="openLocation()">
+                    <div class="inner">
+                        <i class="icon iconfont icon-location left-icon" style="color: red;"></i>
+                        <span>{{campaign.address}}</span>
+                        <i class="icon iconfont icon-more arrow-right"></i>
+                    </div>
+                </li>
+                <li ng-if="campaign.school!=''">
+                    <div class="inner" ui-sref="course.schoolDetail({id:campaign.school._id})">
+                        <i class="icon iconfont icon-school left-icon" style="color:#EDAB4A;"></i>
+                        <!-- <img ng-src="{{campaign.school.logo}}" class="school-logo"> -->
+                        <span class="ellipsis textnowrap" style="width:90%">{{campaign.school.name}}</span>
+                        <i class="icon iconfont icon-more arrow-right"></i>
+                    </div>
+                </li>
+                <li ng-if="campaign.scopeId!=''">
+                    <div class="inner">
+                        <i class="icon iconfont icon-socially left-icon" style="color:#aaa;"></i>
+                        <span>{{campaign.scopeId}}</span>
+                    </div>
+                </li>
+            </ul>
+            <!-- <ul>
+                <li>
+                    <div class="inner">
+                        <span class="square"></span><span class="title">活动详情</span>
+                    </div>
+                </li>
+            </ul> -->
+            <div class="title"><span>活动介绍</span></div>
+            <div class="content nborder" ng-bind-html="campaign.description | html"></div>
+            <div class="yqx-tip-wraper">
+                <div class="yqx-tip">
+                    <p class="tip-title"><span>小翼提示</span></p>
+                    <p class="item">1. 下单成功后您将获得对应的15位数验证码，消费时请主动出示您的15位数验证码。</p>
+                    <p class="item">2. 活动暂不支持退款。</p>
+                    <p class="item">3. 为了保障您的权益，请选择使用翼起学线上支付，如使用其它方式进行支付并在消费中产生纠纷，翼起学将无法进行合理调解，且不承担相关责任，感谢您的谅解与支持。</p>
+                    <p class="item">4. 活动最终解释权由翼起学所有。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c-footer-toolbar">
+        <div ng-if="!campaignIsOver">
+            <div class="left-wraper t-c">
+                <span class="c-main-red" ng-if="campaign.minPrice>0">￥{{campaign.minPrice}}起</span>
+                <span class="c-main-red" ng-if="campaign.minPrice==0">可免费报名</span>
+            </div>
+            <div class="right-btn" ng-click="singup()">报名</div>
+        </div>
+        <div class="end-wraper" ng-if="campaignIsOver">报名已结束</div>
+    </div>
+    <!-- <div class="signup-footer">
+        <div ng-if="!campaignIsOver">
+            <span class="price" ng-if="campaign.minPrice>0">￥{{campaign.minPrice}}起</span>
+            <span class="price" ng-if="campaign.minPrice==0">可免费报名</span>
+            <button ng-click="singup()" class="btn">报名</button>
+        </div>
+        <div ng-if="campaignIsOver" class="over-tip">
+            报名已结束
+        </div>
+    </div> -->
+    <div class="distribution-money-button" ng-distribution-dialog qr-code-url="{{shareLink}}" ng-if="userInfo.isMember"></div>
+</div>
+
+<!-- ui-sref="setCampaignPhone({id:campaign._id})" -->

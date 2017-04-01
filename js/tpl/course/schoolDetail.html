@@ -1,0 +1,101 @@
+<div class="school-detail clearfix" ng-controller="schoolDetailCtrl">
+    <div class="detail-top clearfix">
+        <img src="../../image/school_bg.png" alt="" class="school-bg">
+        <div class="article">
+            <div class="outer-outer">
+                <div class="outer-inside">
+                    <div class="logo">
+                        <img ng-src="{{school.logo}}" alt="logo" class="school-logo">
+                    </div>
+                </div>
+            </div>
+            <p class="name">{{school.name}}</p>
+            <p class="title" ng-if="school.discountNotice!=''">{{school.discountNotice}}</p>
+            <p class="look-collect">
+                <span class="look">{{school.pv || 0}}次浏览</span>
+                <span class="squire"></span>
+                <span class="collect">{{school.schoolCollCount || 0}}次收藏</span>
+            </p>
+        </div>
+    </div>
+    <div class="detail-content clearfix">
+        <img src="../../image/school_c_bg.png" alt="" class="school-c-bg">
+        <div class="container">
+            <div class="content-title clearfix">
+                <img src="../../image/school_mark_l.png" alt="" class="show mark-left">
+                <span>校区介绍</span>
+                <img src="../../image/school_mark_r.png" alt="" class="show mark-right">
+            </div>
+            <div class="html" ng-bind-html="school.detail | html">
+                
+            </div>
+            <div class="recommend line clearfix">
+                <p class="head"><span class="squire"></span><span class="text">校区推荐</span></p>
+                <div class="l-b-content clearfix">
+                    <div class="school-course item" ng-click="openSchoolCourse()">
+                        <img src="../../image/school_recommend_bg.png" alt="" class="radius">
+                        <div class="text">
+                            <p class="title">精品课程</p>
+                            <p ng-class="{'c-main-red':school.courseCount>0}">
+                                <span class="cicle"></span>
+                                <span ng-if="school.courseCount>0">共{{school.courseCount}}门</span>
+                                <span ng-if="school.courseCount<1">暂无课程</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="school-campaign item">
+                        <img src="../../image/school_recommend_bg.png" alt="" class="radius">
+                        <div class="text">
+                            <p class="title">精品活动</p>
+                            <p><span>即将开放</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="address line clearfix">
+                <div class="left">
+                    <p class="head"><span class="squire"></span><span class="text">校区地址</span></p>
+                    <p class="l-b-content">{{school.district[0].cname}}{{school.district[1].cname}}{{school.address}}</p>
+                </div>
+                <div class="right clearfix">
+                    <i class="icon iconfont icon-locationfill" ng-click="openLocation()"></i>
+                </div>
+            </div>
+            <div class="permit line" ng-if="school.companyImage!=''">
+                <p class="head"><span class="squire"></span><span class="text">资质</span></p>
+                <div class="l-b-content">
+                    <span>公司 </span>
+                    <span ng-if="school.type==0">(办学许可证认证) </span>
+                    <span ng-if="school.type==1">(营业执照认证) </span>
+                    <a href="" class="look" ng-click="initPreview()">点击查看</a>
+                </div>
+            </div>
+            <div class="comment line clearfix" id="J_commentWraper">
+                <p class="head"><span class="squire"></span><span class="text">评论</span><span>({{school.comment.length}})</span></p>
+                <ul class="list-content clearfix" ng-if="school.comment.length>0">
+                    <li class="clearfix"  ng-repeat="item in school.comment">
+                        <img ng-src="{{item.avatar}}" alt="" class="photo">
+                        <div class="right">
+                            <p class="name clearfix"><span class="nick">{{item.nick}}</span>
+                            <span class="num">{{school.comment.length-$index}}#</span></p>
+                            <p class="time">{{item.created | mdate:'YYYY/MM/DD HH:mm'}}</p>
+                            <p class="text">{{item.content}}</p>
+                        </div>
+                    </li>
+                </ul>
+                <p class="tips" ng-if="school.comment.length==0">还没有人评论，快来写点东西呀</p>
+                <div class="button" ng-click="addComment()" ng-show="!pageView.commentEditing">
+                    <span>写评论</span>
+                </div>
+                <div class="comment-form" ng-show="pageView.commentEditing">
+                    <input type="text" id="J_commentInput" ng-model="pageView.content">
+                    <button class="btn" ng-click="sendComment()">发送</button>
+                </div>
+            </div>
+        </div>
+        <img src="../../image/school_content_bottom.png" alt="" class="bottom-logo">
+    </div>
+    <div class="detail-bottom">
+        <a href="http://dl.iqixue.com" target=blank class="download">点击下载翼起学APP，发现更多机构</a>
+    </div>
+</div>

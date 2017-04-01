@@ -1,0 +1,27 @@
+<div class="campaign-pay" ng-controller="commonPayCtrl">
+    <div ng-if="!payResult">
+        <div class="title-wraper">
+            <h4 class="title">{{orderInfo.order.name}}</h4>
+            <p class="price">￥{{orderInfo.order.price}}</p>
+            <p class="num" ng-if="orderType=='campaign'">{{orderInfo.order.num}} 份</p>
+        </div>
+        <div class="campaign-sku-wraper">
+            <div class="item">
+                <span class="label">合计</span>
+                <span class="text c-main-red">￥{{orderInfo.order.price*orderInfo.order.num | number:2}}</span>
+            </div>
+         </div>
+        <div class="pay-btn" ng-click="pay()">微信安全支付</div>
+    </div>
+    <div ng-if="payResult">
+        <div class="pay-success-info"><i class="icon iconfont icon-miaojiesecurity"></i><span>支付成功</span></div>
+        <div class="pay-btn" ng-if="orderType=='campaign'" ui-sref="campaign.myCampaign({id:userId})">查看我的活动</div>
+        <div class="pay-btn" ng-if="orderType=='course'" ui-sref="course.myCourse">查看我的课程</div>
+    </div>
+</div>
+<div class="campaign-footer">
+    <p>商户中心：www.iqixue.com（可发布活动）</p>
+    <p>客服邮箱：service@iqixue.com</p>
+    <p>客服热线：400-158-3721</p>
+    <p>工作时间：工作日9:00到21:00，周末10:00到18:00</p>
+</div>

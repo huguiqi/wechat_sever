@@ -1,0 +1,60 @@
+<div class="campaign-order clearfix" ng-controller="campaignOrder" id="J_campaignOrder" style="padding-bottom: 1rem;">
+	<div class="order-title clearfix">
+		<div class="cover">
+			<img ng-src="{{campaign.cover}}?imageView2/1/w/650/h/400/q/80" alt="活动封面">
+		</div>
+		<p class="title">{{campaign.name}}</p>
+	</div>
+	<div class="order-ticket">
+		<p class="tips"><i class="icon iconfont icon-miaojiesecurity"></i><span>请选择</span></p>
+		<ul>
+			<li ng-click="ticketSelect($index)" ng-class="{'active':currentTicketIndex==$index}" ng-repeat="item in ticketList">
+				<p class="ticket-message clearfix">
+					<span class="name">{{item.name}}</span>
+					<span class="last" ng-if="item.remainder<0">无限额</span>
+					<span class="last" ng-if="item.remainder==0">已售罄</span>
+					<span class="last" ng-if="item.remainder>0">余票: <span class="number">{{item.remainder}}</span></span>
+				</p>
+				<p class="tip-text clearfix">
+					<span class="desc" ng-if="item.description!=''">说明：</i>{{item.description}}</span>
+					<span class="price" ng-if="item.price==0">免费</span>
+					<span class="price" ng-if="item.price!=0"><i>￥</i>{{item.price}}</span>
+				</p>
+			</li>
+		</ul>
+	</div>
+	<div class="campaign-sku-wraper">
+	 	<div class="item">
+	 		<span class="label">票数</span>
+	 		<div class="c-number-range f-r">
+	 			<i class="sub" ng-click="subNum()" ng-class="{disabled:order.num==1||order.num==0}">-</i>
+	 			<i class="num">{{order.num}}</i>
+	 			<i class="add" ng-click="addNum()" ng-class="{disabled:order.num==maxNum}">+</i>
+	 		</div>
+	 	</div>
+	</div>
+	 <!--	
+	 <div class="campaign-sku-wraper">
+	 	<div class="item nborder">
+	 		<span class="label">参与人姓名</span>
+	 		<span class="text">填一个即可</span>
+	 	</div>
+	 	<div class="item nborder">
+	 		<input class="name-input" placeholder="输入参与人姓名" ng-model="order.name" >
+		</div>		
+	 </div> -->
+	 <div class="c-footer-toolbar">
+        <div class="left-wraper t-c">
+        	<div class="inner-total-price" ng-if="order.price>0&&maxNum>0">
+        		<p class="top-price c-main-red"><span class="f12">￥</span>{{order.price | number:2}}</p>
+        		<p class="bottom-tip">合计</p>
+        	</div>
+        	<span ng-if="order.price==0" style="color: #aaa;">免费</span>
+        	<span ng-if="maxNum==0" style="color: #aaa;">已售罄</span>
+        </div>
+        <div class="right-btn" ng-click="submit()" ng-class="{'right-btn-disable':maxNum==0}">下一步</div>
+    </div>
+	<div class="c-collect-tips" ng-if="tipView.show">
+        <p class="tipText">{{tipView.text}}</p>
+    </div>
+</div>

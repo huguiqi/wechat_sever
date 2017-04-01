@@ -1,0 +1,10 @@
+//活动列表
+require('./list');
+//活动详情
+require('./detail');
+//我的活动
+require('./myCampaign');
+//活动下订单
+require('./order');
+//活动问卷表单
+require('./question');

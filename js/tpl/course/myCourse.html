@@ -1,0 +1,80 @@
+<div class="my-campaign my-course" ng-controller="myCourseCtrl">
+    <div class="myCourse-header">
+        <div class="header-link">
+            <a href="" class="button" ng-class="{'active':listShow==1}" ng-click="getList(1)">活动订单</a>
+            <a href="" class="button" ng-class="{'active':listShow==2}" ng-click="getList(2)">课程订单</a>
+            <a href="" class="button" ng-class="{'active':listShow==3}" ng-click="getList(3)">我的收藏</a>
+        </div>
+    </div>
+    <div class="m-course-order" ng-if="listShow==1">
+        <div class="campaign-list course-list"
+             ng-repeat="item in campaignOrder"
+             ng-if="campaignOrder.length>0"
+             ng-class="{'status-unpaid':item.trade.status==1&&item.trade.over==1,'status-paid':item.trade.status==2,'status-end':item.trade.status==5||item.trade.over==0}">
+            <img class="banner" ng-src="{{item.order.cover}}" alt="" ui-sref="campaign.detail({id:item.order.iid})">
+            <p class="title">{{item.trade.title}}</p>
+            <div class="message" ui-sref="campaign.detail({id:item.order.iid})">
+                <p class="item">订单号:<span>{{item.trade.tid}}</span></p>
+                <p class="item" ng-if="item.class!=''">电子票:<span>{{item.eTicket.name}}</span></p>
+                <p class="item">购票数量:<span>{{item.order.num}}</span></p>
+                <p class="item">总价:<span class="c-main-red">￥{{item.trade.total}}</span></p>
+                <p class="address item" ng-if="item.school!=''">地点:<span>{{item.campaign.address}}</span></p>
+                <!-- <button class="icon iconfont logo">&#xe602;</button> -->
+                <p class="item">时间:&nbsp;&nbsp;<span class="link-detail">{{item.campaign.startTime | mdate:'YYYY-MM-DD HH:mm'}} ~ {{item.campaign.endTime | mdate:'YYYY-MM-DD HH:mm'}}</span></p>
+            </div>
+            <div class="status campaignCountDown">
+                <span ng-if="item.trade.status==2">已付款&nbsp;&nbsp;<span>(于{{item.trade.modified | mdate:'YYYY-MM-DD HH:mm'}}付款成功)</span></span>
+                <span ng-if="item.trade.status==5">交易成功</span>
+                <span ng-if="item.trade.status==1&&item.trade.over==1" class="timer"></span>
+                <span ng-if="item.trade.status==1&&item.trade.over==0">交易关闭</span>
+                <div class="pay-btn" ng-if="item.trade.status==1&&item.trade.over==1" ng-click="payAgain(item,'campaign')">微信支付</div>
+            </div>
+        </div>
+        <div class="course-none">
+            <p class="text">{{pageConfig.loadingText}}</p>
+        </div>
+    </div>
+    <div class="m-course-order" ng-if="listShow==2">
+        <div class="campaign-list course-list"
+             ng-repeat="item in courseOrder"
+             ng-if="courseOrder.length>0"
+             ng-class="{'status-unpaid':item.trade.status==1&&item.trade.over==1,'status-paid':item.trade.status==2,'status-end':item.trade.status==5||item.trade.over==0}">
+            <img class="banner" ng-src="{{item.order.cover}}" alt="">
+            <p class="title">{{item.trade.title}}</p>
+            <p class="title">{{item.order.title}}</p>
+            <div class="message" ui-sref="course.detail({id:item.order.iid})">
+                <p class="item">订单号:<span>{{item.trade.tid}}</span></p>
+                <p class="item" ng-if="item.class!=''">课程属性:<span ng-if="item.class.type==1">普通课</span><span ng-if="item.class.type==2">体验课</span></p>
+                <p class="item">总价:<span class="c-main-red">￥{{item.trade.total}}</span></p>
+                <p class="address item" ng-if="item.school!=''">地点:<span>{{item.school.address}}</span></p>
+                <!-- <button class="icon iconfont logo">&#xe602;</button> -->
+                <p class="item">时间:&nbsp;&nbsp;<span class="link-detail">详细时间请查询课程介绍(点击查看)</span></p>
+            </div>
+            <div class="status courseCountDown">
+                <span ng-if="item.trade.status==2">已付款&nbsp;&nbsp;<span>(于{{item.trade.modified | mdate:'YYYY-MM-DD HH:mm'}}付款成功)</span></span>
+                <span ng-if="item.trade.status==5">交易成功</span>
+                <span ng-if="item.trade.status==1&&item.trade.over==1" class="timer"></span>
+                <span ng-if="item.trade.status==1&&item.trade.over==0">交易关闭</span>
+                <div class="pay-btn" ng-if="item.trade.status==1&&item.trade.over==1" ng-click="payAgain(item,'course')">微信支付</div>
+            </div>
+        </div>
+        <div class="course-none">
+            <p class="text">{{pageConfig.loadingText}}</p>
+        </div>
+    </div>
+    <div class="m-course-collect" ng-if="listShow==3">
+        <div class="collect-list" ng-repeat="item in collect" ng-if="collect.length>0">
+            <div class="class-message clearfix" ui-sref="course.detail({id:item.course._id})">
+                <img ng-src="{{item.course.cover}}" alt="" class="cover">
+                <p class="title">{{item.course.name}}</p>
+            </div>
+            <div class="school-message clearfix" ui-sref="course.schoolDetail({id:item.school._id})">
+                <img ng-src="{{item.school.logo}}" alt="" class="logo">
+                <span class="text">{{item.school.name}}</span>
+            </div>
+        </div>
+        <div class="course-none">
+            <p class="text">{{pageConfig.loadingText}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="distribution-group-top-bg"></div>
+<div class="distribution-group" ng-controller="distributionGroupCtrl" id="J_distributionGroup">
+	<!-- <h4 class="title">
+		<img src="../../../image/distribution-top-font.png">
+	</h4> -->
+	<h4 class="title c-main-red">购买成功！</h4>
+	<div class="desc">
+		<p>扫描二维码，<span class="c-main-red">添加管理员微信</span></p>
+		<p class="text">可及时获得属于您和孩子的个性化活动推送、抽奖通知和百G电子资源！</p>
+	</div>
+	<div class="code-img">
+		<img src="http://cdn.4001583721.com/distribution-person-code2.png" alt=""/>
+	</div>
+	<div class="button-wraper">
+		<a href="{{centerLink}}" class="c-distribution-button c-distribution-button-fill" style="margin-bottom: 0.2rem">查看会员中心</a>
+		<button class="c-distribution-button" ng-distribution-dialog qr-code-url="{{shareLink}}">推荐给好友</button>
+	</div>
+</div>
